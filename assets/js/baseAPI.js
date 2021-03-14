@@ -1,5 +1,5 @@
 // 开发环境服务器地址
-let baseURL = 'http://ajax.frontend.itheima.net'
+let baseURL = 'http://api-breakingnews-web.itheima.net'
 
 
 // 拦截所有ajax请求
