@@ -15,11 +15,10 @@ $.ajaxPrefilter(function (options) {
         }
     }
 
-    // 3.拦截所有响应,哦安短身份证人信息
+    // 3.拦截所有响应,判断身份证信息
     options.complete = function (res) {
         console.log(res.responseJSON);
         let obj = res.responseJSON;
-        console.log(obj);
         if (obj.status == 1 && obj.message == '身份证认证失败！') {
             console.log(11111);
             // 清空本地token
