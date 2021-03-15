@@ -1,8 +1,23 @@
 
 // 入口函数 
 $(function () {
-    // 调用函数
+    // 1.调用函数,用于获取用户信息
     getUserInfo();
+
+    // 2.退出登录
+    let layer = layui.layer;
+    $('#btnLogout').on('click', function () {
+        // 框架提供的询问框
+        //eg1
+        layer.confirm('是否确定退出登录?', { icon: 3, title: '提示' }, function (index) {
+            //2.1清空本地token
+            localStorage.removeItem('token');
+            // 2.2页面跳转
+            location.href = "/login.html";
+            // 关闭询问
+            layer.close(index);
+        });
+    })
 })
 
 
@@ -13,9 +28,9 @@ function getUserInfo() {
     // 发送ajax请求数据
     $.ajax({
         url: '/my/userinfo',
-        headers: {
+        /* headers: {
             Authorization: localStorage.getItem('token') || '',
-        },
+        }, */
         success: (res) => {
             console.log(res);
             console.log('dddd');
@@ -51,8 +66,6 @@ function renderAvatar(user) {
         // 显示文字头像,取文字的第一个字母并改成大写,隐藏图片头像
         let text = name[0].toUpperCase();
         $('.text-avatar').show().html(text)
-
-
 
 
     }
