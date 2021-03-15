@@ -1,6 +1,6 @@
 $(function () {
 
-    let layer = layui.layer
+    var layer = layui.layer
     InfinityArtCateList();
 
     function InfinityArtCateList() {
@@ -9,7 +9,8 @@ $(function () {
             success: (res) => {
                 console.log(res);
                 // 调用模板
-                let htmlStr = template('tpl-art-cate', { data: res.data })
+                // var htmlStr = template('tpl-art-cate', { data: res.data })
+                var htmlStr = template('tpl-art-cate', res)
                 $('tbody').html(htmlStr)
             }
         });
