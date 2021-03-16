@@ -20,7 +20,7 @@ $(function () {
             type: 'GET',
             url: '/my/userinfo',
             success: (res) => {
-                // console.log(res);
+                console.log(res);
                 // 判断
                 if (res.status != 0) {
                     return layer.msg(res.message, { icon: 5 })
